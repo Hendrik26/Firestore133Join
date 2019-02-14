@@ -1,3 +1,6 @@
+// GFirst Download from Git-Url: https://github.com/AngularFirebase/133-firestore-joins-custom-rx-operators.git
+// First Folder-Name: 133-firestore-joins-custom-rx-operators
+
 import { Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 
