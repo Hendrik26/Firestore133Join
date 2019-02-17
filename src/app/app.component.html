@@ -10,10 +10,10 @@
 
 <div *ngFor="let doc of joined | async">
 
-    <h3>{{ doc.name }}</h3>
-    <h3>{{ doc.car }}</h3>
-    <h3>{{ doc.key }}</h3>
-    <h3>{{ doc.pet }}</h3>
+    <h3>name: {{ doc.name }}</h3>
+    <h3>car: {{ doc.car }}</h3>
+    <h3>userId: {{ doc.userId }}</h3>
+    <h3>pet: {{ doc.pet }}</h3>
     -------------------------
 
     <div *ngFor="let item of doc | keyvalue">
