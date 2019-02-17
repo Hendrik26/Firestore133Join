@@ -19,28 +19,28 @@ export class AppComponent {
   joined;
   joined2;
   constructor(private afs: AngularFirestore) {
-    this.user = this.afs
+    this.afs
       .doc('users/jeff')
       .valueChanges()
       .pipe(
         docJoin(afs, { pet: 'pets', bff: 'users', car: 'cars' }),
         shareReplay(1)
-      );
+      ).subscribe(user => {this.user = user});
 
-    this.joined = this.afs
+    this.afs
       .collection('users')
       .valueChanges()
       .pipe(
         leftJoin(afs, 'userId', 'orders', 5),
         shareReplay(1)
-      );
+      ).subscribe(joined => {this.joined = this.joined});
 
-    this.joined2 = this.afs
+    this.afs
       .collection('users')
       .valueChanges()
       .pipe(
         leftJoinDocument(afs, 'pet', 'pets'),
         shareReplay(1)
-      );
+      ).subscribe(joined2 => {this.joined2 = joined2});
   }
 }
